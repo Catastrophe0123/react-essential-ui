@@ -6,61 +6,61 @@ export const generateNavBar = ({
 	name,
 	useTS,
 }: GenerateComponent) => {
-	const componentTS = `import React from 'react';
-    // import classes from '../styles/NavBar.module.css';
-    import classes from "${cssPath}/${name}.module.css";
+	const componentTS = `
+import React from 'react';
+import classes from "${cssPath}/${name}.module.css";
 
 
-    export default function ${name}() {
-        // TODO: add themeing
-    
-        return (
-            <div className={classes.topnav}>
-                <a
-                    className={[classes.active, classes.anchor].join(' ')}
-                    href='#home'>
-                    Home
-                </a>
-                <a className={classes.anchor} href='#news'>
-                    News
-                </a>
-                <a className={classes.anchor} href='#contact'>
-                    Contact
-                </a>
-                <a className={classes.anchor} href='#about'>
-                    About
-                </a>
-            </div>
-        );
-    }
+export default function ${name}() {
+    // TODO: add themeing
+
+    return (
+        <div className={classes.topnav}>
+            <a
+                className={[classes.active, classes.anchor].join(' ')}
+                href='#home'>
+                Home
+            </a>
+            <a className={classes.anchor} href='#news'>
+                News
+            </a>
+            <a className={classes.anchor} href='#contact'>
+                Contact
+            </a>
+            <a className={classes.anchor} href='#about'>
+                About
+            </a>
+        </div>
+    );
+}
     `;
 
-	const componentJS = `import React from 'react';
-    import classes from '../styles/NavBar.module.css';
-    import classes from "${cssPath}/${name}.module.css";
+	const componentJS = `
+import React from 'react';
+import classes from "${cssPath}/${name}.module.css";
 
-    export default function ${name}() {
-        // TODO: add themeing
-    
-        return (
-            <div className={classes.topnav}>
-                <a
-                    className={[classes.active, classes.anchor].join(' ')}
-                    href='#home'>
-                    Home
-                </a>
-                <a className={classes.anchor} href='#news'>
-                    News
-                </a>
-                <a className={classes.anchor} href='#contact'>
-                    Contact
-                </a>
-                <a className={classes.anchor} href='#about'>
-                    About
-                </a>
-            </div>
-        );
-    }
+export default function ${name}() {
+    // TODO: add themeing
+
+    return (
+        <div className={classes.topnav}>
+            <a
+                className={[classes.active, classes.anchor].join(' ')}
+                href='#home'>
+                Home
+            </a>
+            <a className={classes.anchor} href='#news'>
+                News
+            </a>
+            <a className={classes.anchor} href='#contact'>
+                Contact
+            </a>
+            <a className={classes.anchor} href='#about'>
+                About
+            </a>
+        </div>
+    );
+}
     `;
 
 	const style = `/* Add a black background color to the top navigation */
