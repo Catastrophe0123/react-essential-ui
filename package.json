@@ -1,8 +1,8 @@
 {
 	"name": "react-essential-ui",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "A react component library to quickly spin up good looking UI that is highly customizable. Ideal for projects requiring quick iterations like hackathons, building MVPs or prototypes.",
-	"main": "dist/index.js",
+	"main": "dist/main.js",
 	"bin": "dist/index.js",
 	"author": "Navaneeth V",
 	"license": "MIT",
@@ -13,6 +13,7 @@
 		"publish:np": "np"
 	},
 	"devDependencies": {
+		"@types/node": "^14.14.35",
 		"np": "^7.4.0",
 		"ts-node-dev": "^1.1.6",
 		"typescript": "^4.2.3"
@@ -28,5 +29,9 @@
 	"bugs": {
 		"url": "https://github.com/Catastrophe0123/react-essential-ui/issues"
 	},
-	"homepage": "https://github.com/Catastrophe0123/react-essential-ui#readme"
+	"homepage": "https://github.com/Catastrophe0123/react-essential-ui#readme",
+	"dependencies": {
+		"chalk": "^4.1.0",
+		"commander": "^7.1.0"
+	}
 }
