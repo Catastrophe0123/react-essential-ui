@@ -5,6 +5,7 @@ export const generateNavBar = ({
 	cssPath,
 	name,
 	useTS,
+	genFiles,
 }: GenerateComponent) => {
 	const componentTS = `
 import React from 'react';

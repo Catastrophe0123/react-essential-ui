@@ -5,6 +5,7 @@ import { Command } from 'commander';
 import path from 'path';
 import { Config, isConfig } from './src/util/config';
 import { generateNavBar } from './src/components/NavBar';
+import { genFiles } from './src/util/generateComponents';
 
 // const PATH = __dirname + '/essential.config.json';
 const PATH = process.cwd() + '/essential.config.json';
@@ -66,6 +67,7 @@ switch (options.componentType) {
 			name: options.name ? options.name : options.componentType,
 			useTS: options.typescript,
 			config,
+			genFiles,
 		});
 		break;
 }

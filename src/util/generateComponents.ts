@@ -6,6 +6,7 @@ export interface GenerateComponent {
 	cssPath: string;
 	name: string;
 	config: Config;
+	genFiles: ({}: GenerateFiles) => void;
 }
 
 export interface GenerateFiles {
