@@ -13,6 +13,7 @@
         "test:watch": "jest --watch",
         "lint": "prettier --check .",
         "publish:np": "np",
+        "prepublishOnly": "yarn build",
         "format": "prettier --write .",
         "clean:temp": "rimraf ./tests/temp/*.{tsx,jsx,css}"
     },
