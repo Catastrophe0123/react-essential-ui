@@ -105,5 +105,10 @@ dist
 
 dummyapp
 
-/tests/temp/*
+
+
+/tests/temp/*.{jsx,css,tsx}
+/tests/temp/*.jsx
+/tests/temp/*.css
+/tests/temp/*.tsx
 # temp

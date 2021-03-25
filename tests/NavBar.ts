@@ -2,7 +2,7 @@ import { generateNavBar } from '../src/components/NavBar';
 import { genFiles } from '../src/util/generateComponents';
 import rimraf from 'rimraf';
 import path from 'path';
-import fs from 'fs';
+import { fileExists } from '../src/util/utils';
 
 const mockGenFiles = jest.fn();
 
@@ -13,7 +13,9 @@ const mockConfig = {
 
 beforeAll(() => {
     // delete all the files inside the temp folder
-    rimraf.sync(path.normalize(__dirname + '/temp/*'), { glob: {} });
+    rimraf.sync(path.normalize(__dirname + '/temp/*.{tsx,jsx,css}'), {
+        glob: {},
+    });
 });
 // "pre-commit": "yarn test && prettier --write . && git add -A ."
 
@@ -27,10 +29,6 @@ it('calls generate function', () => {
     });
     expect(mockGenFiles).toHaveBeenCalled();
 });
-
-const fileExists = (path: string): boolean => {
-    return fs.existsSync(path);
-};
 
 it('generates tsx', () => {
     genFiles({
