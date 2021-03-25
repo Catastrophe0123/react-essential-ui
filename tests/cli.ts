@@ -10,6 +10,8 @@ interface CLIOutput {
     stderr: string;
 }
 
+jest.setTimeout(30000);
+
 function cli(args: Array<string>, cwd: string): Promise<CLIOutput> {
     return new Promise((resolve) => {
         exec(
