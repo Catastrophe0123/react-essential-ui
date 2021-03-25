@@ -1,0 +1,31 @@
+
+name: Node.js CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+          always-auth: true
+      - name: Install dependencies
+        run: yarn
+      - name: Run tests
+        run: yarn test
+      # TODO: Build and publish with lerna or np
+      # - run: yarn build
+      # - name: Release Tag
+      #   env:
+      #       NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      #   run: yarn publish:np patch --no-publish --message="[skip ci] v%s"
+      # - run: yarn publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
