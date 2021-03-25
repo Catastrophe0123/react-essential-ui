@@ -7,7 +7,6 @@ import { generateNavBar } from './src/components/NavBar';
 import { genFiles } from './src/util/generateComponents';
 import chalk from 'chalk';
 
-// const PATH = __dirname + '/essential.config.json';
 const PATH = process.cwd() + '/essential.config.json';
 console.log(PATH);
 const USE_TS = false;
@@ -20,6 +19,7 @@ try {
     console.error(err.message);
     process.exit(1);
 }
+
 // config is safe now
 console.log(config);
 
@@ -46,7 +46,6 @@ console.log(options);
 
 switch (options.componentType) {
     case 'NavBar':
-        // generateNavBar(options.typescript, relativePathToCSS, options.name);
         generateNavBar({
             cssPath: relativePathToCSS,
             name: options.name ? options.name : options.componentType,
@@ -59,8 +58,3 @@ switch (options.componentType) {
         console.error(chalk.red('Invalid component type'));
         process.exit(1);
 }
-
-// if (options.debug) console.log(options);
-// console.log('pizza details:');
-// if (options.small) console.log('- small pizza size');
-// if (options.pizzaType) console.log(`- ${options.pizzaType}`);
