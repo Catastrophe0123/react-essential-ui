@@ -68,7 +68,7 @@ import React, { useState } from 'react';
 
 
 
-export function ${name}({ onclick }) {
+export function BackDrop({ onclick }) {
 	return <div onClick={onclick} className={classes.BackDrop}></div>;
 }
 
