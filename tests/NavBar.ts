@@ -36,42 +36,72 @@ it('generates tsx', () => {
     genFiles({
         component: 'string',
         config: mockConfig,
-        name: 'TextNavBar',
+        name: 'TestNavBar',
         style: 'styles',
         useTS: true,
     });
 
-    expect(fileExists(__dirname + '/temp/TextNavBar.tsx')).toBeTruthy();
+    expect(fileExists(__dirname + '/temp/TestNavBar.tsx')).toBeTruthy();
 });
 
 it('generates styles', () => {
     genFiles({
         component: 'string',
         config: mockConfig,
-        name: 'TextNavBar',
+        name: 'TestNavBar',
         style: 'styles',
         useTS: true,
     });
-    expect(fileExists(__dirname + '/temp/TextNavBar.module.css')).toBeTruthy();
+    expect(fileExists(__dirname + '/temp/TestNavBar.module.css')).toBeTruthy();
 });
 
 it('generates jsx', () => {
     genFiles({
         component: 'string',
         config: mockConfig,
-        name: 'TextNavBar',
+        name: 'TestNavBar',
         style: 'styles',
         useTS: false,
     });
-    expect(fileExists(__dirname + '/temp/TextNavBar.jsx')).toBeTruthy();
+    expect(fileExists(__dirname + '/temp/TestNavBar.jsx')).toBeTruthy();
 });
 
 // import React from 'react';
 // import { render } from '@testing-library/react';
-// import NavBar from './temp/TextNavBar';
+// // @ts-ignore
+// // import NavBar from './temp/testNavBar';
 
-// it('generates correct react component', () => {
-// 	const element = render(<NavBar />);
+// describe('react tests', () => {
+//     beforeAll(() => {
+//         rimraf.sync(path.normalize(__dirname + '/temp/*'), { glob: {} });
+//         generateNavBar({
+//             config: mockConfig,
+//             cssPath: '.',
+//             name: 'TestNavBar',
+//             useTS: true,
+//             genFiles: genFiles,
+//         });
+//         // genFiles({
+//         //     component: 'string',
+//         //     config: mockConfig,
+//         //     name: 'testNavBar',
+//         //     style: 'styles',
+//         //     useTS: false,
+//         // });
+//         console.log('here : ', fileExists(__dirname + '/temp/TestNavBar.tsx'));
+//         expect(fileExists(__dirname + '/temp/TestNavBar.tsx')).toBeTruthy();
+//     });
+//     it('generates correct react component', async () => {
+//         if (fileExists(__dirname + '/temp/TestNavBar.tsx')) {
+//             console.log('here1?');
+//             // @ts-ignore
+//             // const x = await import('./temp/TestNavBar');
+//             const x = await import('./temp/TestNavBar');
+//             console.log('waterbording : ' + x);
+//         }
 
-// 	// expect(element).toBeDefined();
+//         // const element = render(React.createElement(NavBar));
+//         // console.log(element);
+//         // expect(element).toBeDefined();
+//     });
 // });
