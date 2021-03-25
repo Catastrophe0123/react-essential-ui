@@ -37,9 +37,13 @@ export function getConfig(PATH: string): Config {
     return config;
 }
 
-export function validateConfig(config: Config) {
+export function validateConfig(config: Config): Config {
     if (fs.existsSync(config.componentDir) && fs.existsSync(config.stylesDir)) {
-        return config;
+        // return config;
+        return {
+            componentDir: config.componentDir + '/',
+            stylesDir: config.stylesDir + '/',
+        };
     } else {
         throw new Error('Invalid Config. Directory does not exist');
     }

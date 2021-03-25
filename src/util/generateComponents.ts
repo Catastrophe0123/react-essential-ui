@@ -1,5 +1,6 @@
 import { Config } from './config';
 import fs from 'fs';
+import chalk from 'chalk';
 
 export interface GenerateComponent {
     useTS: boolean;
@@ -30,5 +31,5 @@ export const genFiles = async ({
 
     fs.writeFileSync(`${stylesDir}${name}.module.css`, style);
 
-    console.log('generated files');
+    console.log(chalk.green('generated files'));
 };

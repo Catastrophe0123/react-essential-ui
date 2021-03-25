@@ -8,7 +8,6 @@ import { genFiles } from './src/util/generateComponents';
 import chalk from 'chalk';
 
 const PATH = process.cwd() + '/essential.config.json';
-console.log(PATH);
 const USE_TS = false;
 let config: Config;
 try {
@@ -21,12 +20,16 @@ try {
 }
 
 // config is safe now
-console.log(config);
 
 const { componentDir, stylesDir } = config;
-console.log(path.relative(componentDir, stylesDir));
 
-const relativePathToCSS = path.relative(componentDir, stylesDir);
+// let relativePathToCSS = path.relative(componentDir, stylesDir);
+let relativePathToCSS = String.raw`${path.relative(
+    componentDir,
+    stylesDir
+)}`.replace(/\\/g, '/');
+
+if (relativePathToCSS.trim() == '') relativePathToCSS = '.';
 
 const program = new Command();
 
@@ -41,8 +44,6 @@ program
 program.parse(process.argv);
 
 const options = program.opts();
-
-console.log(options);
 
 switch (options.componentType) {
     case 'NavBar':

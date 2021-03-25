@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
         "build": "rimraf ./dist && tsc",
-        "test": "jest",
+        "test": "jest --no-cache",
         "test:watch": "jest --watch",
         "lint": "prettier --check .",
         "publish:np": "np",
