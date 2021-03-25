@@ -1,13 +1,13 @@
-import { GenerateComponent, genFiles } from '../util/generateComponents';
+import { GenerateComponent } from '../util/generateComponents';
 
 export const generateNavBar = ({
-	config,
-	cssPath,
-	name,
-	useTS,
-	genFiles,
+    config,
+    cssPath,
+    name,
+    useTS,
+    genFiles,
 }: GenerateComponent) => {
-	const componentTS = `
+    const componentTS = `
 import React from 'react';
 import classes from "${cssPath}/${name}.module.css";
 
@@ -36,7 +36,7 @@ export default function ${name}() {
 }
     `;
 
-	const componentJS = `
+    const componentJS = `
 import React from 'react';
 import classes from "${cssPath}/${name}.module.css";
 
@@ -64,7 +64,7 @@ export default function ${name}() {
 }
     `;
 
-	const style = `/* Add a black background color to the top navigation */
+    const style = `/* Add a black background color to the top navigation */
     .topnav {
         background-color: #333;
         overflow: hidden;
@@ -93,11 +93,11 @@ export default function ${name}() {
     }
     `;
 
-	genFiles({
-		useTS,
-		component: useTS ? componentTS : componentJS,
-		style,
-		config,
-		name,
-	});
+    genFiles({
+        useTS,
+        component: useTS ? componentTS : componentJS,
+        style,
+        config,
+        name,
+    });
 };

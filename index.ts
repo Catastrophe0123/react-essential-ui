@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-import fs from 'fs';
 import { Command } from 'commander';
 import path from 'path';
 import { Config, getConfig, validateConfig } from './src/util/config';
 import { generateNavBar } from './src/components/NavBar';
+import { generateSideBar } from './src/components/SideBar';
 import { genFiles } from './src/util/generateComponents';
 import chalk from 'chalk';
 
@@ -16,7 +16,7 @@ try {
     config = validateConfig(config);
 } catch (err) {
     // throw err;
-    console.error(err.message);
+    console.error(chalk.red(err.message));
     process.exit(1);
 }
 
@@ -47,6 +47,15 @@ console.log(options);
 switch (options.componentType) {
     case 'NavBar':
         generateNavBar({
+            cssPath: relativePathToCSS,
+            name: options.name ? options.name : options.componentType,
+            useTS: options.typescript,
+            config,
+            genFiles,
+        });
+        break;
+    case 'SideBar':
+        generateSideBar({
             cssPath: relativePathToCSS,
             name: options.name ? options.name : options.componentType,
             useTS: options.typescript,
