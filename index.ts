@@ -4,6 +4,7 @@ import path from 'path';
 import { Config, getConfig, validateConfig } from './src/util/config';
 import { generateNavBar } from './src/components/NavBar';
 import { generateSideBar } from './src/components/SideBar';
+import { generateDropUp } from './src/components/DropUp';
 import { genFiles } from './src/util/generateComponents';
 import chalk from 'chalk';
 
@@ -57,6 +58,15 @@ switch (options.componentType) {
         break;
     case 'SideBar':
         generateSideBar({
+            cssPath: relativePathToCSS,
+            name: options.name ? options.name : options.componentType,
+            useTS: options.typescript,
+            config,
+            genFiles,
+        });
+        break;
+    case 'DropUp':
+        generateDropUp({
             cssPath: relativePathToCSS,
             name: options.name ? options.name : options.componentType,
             useTS: options.typescript,
